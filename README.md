@@ -92,7 +92,7 @@ Cada componente detectado possui sua **classe**, **bounding box** (localização
 
 ### 2. Reconhecimento de Texto (OCR)
 
-Após a detecção dos componentes, é realizado o pré-processamento das regiões de interesse (*ROIs*) utilizando **OpenCV** (conversão para escala de cinza, binarização e redução de ruído), seguido da extração de texto com **PyTesseract**. Essa etapa associa rótulos e nomes aos componentes detectados, enriquecendo a interpretação semântica.
+Após a detecção dos componentes, é realizado o pré-processamento das regiões de interesse (*ROIs*) utilizando **OpenCV** (conversão para escala de cinza, binarização e redução de ruído), seguido da extração de texto com **PyTesseract**. Essa etapa permite associar rótulos textuais às regiões detectadas, enriquecendo a interpretação semântica dos componentes arquiteturais identificados.
 
 ### 3. Reconstrução da Topologia
 
