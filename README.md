@@ -137,23 +137,13 @@ Para cada ameaça identificada, são geradas recomendações práticas de mitiga
 
 ```text
 .
-├── data/
-│   ├── raw/              # Diagramas e dados brutos
-│   ├── annotated/        # Dados anotados para treinamento
-│   └── splits/           # Divisão de treino, validação e teste
-│
-├── models/               # Pesos e artefatos do modelo treinado
-│
-├── notebooks/
-│   └── MVP_Threat_Modeling_AI_v12-executada-v1.ipynb
-│
-├── outputs/              # Relatórios, imagens e grafos gerados
-│
 ├── docs/                 # Documentação auxiliar do projeto
-│
-├── requirements.txt      # Dependências do ambiente Python
-│
-└── README.md             # Documentação principal do repositório
+│   └── ESPECIFICACAO_TECNICA.md
+├── .gitignore            # Proteção contra arquivos temporários
+├── LICENSE               # Licença MIT
+├── MVP_Threat_Modeling_AI_v12-executada-v1.ipynb  # Notebook principal do projeto
+├── README.md             # Documentação principal do repositório
+└── requirements.txt      # Dependências do ambiente Python
 ```
 
 ---
