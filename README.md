@@ -145,15 +145,15 @@ Dessa forma, a solução combina técnicas de Inteligência Artificial para comp
 
 ```text
 .
-├── docs/
-                          # Documentação auxiliar do projeto
-    └── FLUXO_DESENVOLVIMENTO_SOLUCAO.md             
-│   └── ESPECIFICACAO_TECNICA.md
-├── .gitignore            # Proteção contra arquivos temporários
-├── LICENSE               # Licença MIT
+├── docs/                                          # Documentação auxiliar do projeto
+│   ├── ESPECIFICACAO_TECNICA.md                   # Especificação técnica e arquitetural
+│   └── FLUXO_DESENVOLVIMENTO_SOLUCAO.md           # Fluxo de desenvolvimento da solução
+│
+├── .gitignore                                     # Proteção contra arquivos temporários
+├── LICENSE                                        # Licença MIT
 ├── MVP_Threat_Modeling_AI_v12-executada-v1.ipynb  # Notebook principal do projeto
-├── README.md             # Documentação principal do repositório
-└── requirements.txt      # Dependências do ambiente Python
+├── README.md                                      # Documentação principal do repositório
+└── requirements.txt                               # Dependências do ambiente Python
 ```
 
 ---
