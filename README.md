@@ -166,10 +166,9 @@ cd Projeto-da-Fase-5
 pip install ultralytics opencv-python pytesseract networkx pandas matplotlib
 ```
 
-3. Abra e execute o notebook principal:
-
-```text
-notebooks/MVP_Threat_Modeling_AI_v12-executada-v1.ipynb
+3. Abra e execute o notebook principal do projeto:
+   
+   📌 [MVP_Threat_Modeling_AI_v12-executada-v1.ipynb](./MVP_Threat_Modeling_AI_v12-executada-v1.ipynb)
 ```
 
 4. Execute as células sequencialmente, forneça uma imagem de arquitetura como entrada e analise os artefatos de saída produzidos.
