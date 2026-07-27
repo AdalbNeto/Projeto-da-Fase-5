@@ -151,7 +151,7 @@ Dessa forma, a solução combina técnicas de Inteligência Artificial para comp
 │
 ├── .gitignore                                     # Proteção contra arquivos temporários
 ├── LICENSE                                        # Licença MIT
-├── [MVP_Threat_Modeling_AI_v12-executada-v1.ipynb](MVP_Threat_Modeling_AI_v12-executada-v1.ipynb)  # Notebook principal do projeto
+├── [MVP_Threat_Modeling_AI_v12-executada-v1.ipynb](MVP_Threat_Modeling_AI_v12-executada-v1.ipynb) # Notebook principal do projeto
 ├── README.md                                      # Documentação principal do repositório
 └── requirements.txt                               # Dependências do ambiente Python
 ```
