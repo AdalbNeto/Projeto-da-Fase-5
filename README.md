@@ -116,6 +116,12 @@ Com a topologia construída, o sistema aplica regras baseadas na metodologia **S
 
 Para cada ameaça identificada, são geradas recomendações práticas de mitigação.
 
+A inteligência artificial é utilizada nas etapas de interpretação visual dos diagramas, identificação dos componentes arquiteturais, extração de informações textuais e reconstrução da estrutura lógica da arquitetura.
+
+A identificação das categorias STRIDE é realizada por meio de um motor baseado em regras de segurança, seguindo a metodologia estabelecida para associar possíveis ameaças aos componentes e fluxos arquiteturais identificados.
+
+Dessa forma, a solução combina técnicas de Inteligência Artificial para compreensão da arquitetura com regras estruturadas de Threat Modeling para geração das análises de segurança.
+
 ---
 
 ## 🛠️ Tecnologias Utilizadas
