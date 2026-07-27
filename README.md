@@ -145,7 +145,9 @@ Dessa forma, a solução combina técnicas de Inteligência Artificial para comp
 
 ```text
 .
-├── docs/                 # Documentação auxiliar do projeto
+├── docs/
+                          # Documentação auxiliar do projeto
+    └── FLUXO_DESENVOLVIMENTO_SOLUCAO.md             
 │   └── ESPECIFICACAO_TECNICA.md
 ├── .gitignore            # Proteção contra arquivos temporários
 ├── LICENSE               # Licença MIT
