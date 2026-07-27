@@ -57,7 +57,6 @@ A avaliação de riscos utiliza o modelo **STRIDE** (Microsoft), categorizando a
                                                  ▼
                                      [ Relatório Estruturado ]
 
----
 
 ## 4. Considerações de Segurança e DevSecOps (Shift-Left)
 
