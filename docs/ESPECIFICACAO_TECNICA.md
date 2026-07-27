@@ -19,7 +19,7 @@ Este documento especifica a arquitetura técnica e a fundamentação teórica do
 
 ### 2.1 Visão Computacional e Detecção de Objetos
 
-A etapa de localização visual utiliza o framework **YOLOv8** (*You Only Look Once*), selecionado por sua alta eficiência computacional e precisão no mapeamento de Bounding Boxes em tempo real. O modelo foi treinado para identificar entidades da arquitetura (Atores, Gateways, Bancos de Dados, Filas, Serviços).
+A etapa de localização visual utiliza o framework **YOLOv8** (*You Only Look Once*), selecionado por sua alta eficiência computacional e precisão no mapeamento de Bounding Boxes em tempo real. O modelo foi ajustado utilizando diagramas arquiteturais anotados para identificar entidades da arquitetura, como Atores, Gateways, Bancos de Dados, Filas e Serviços.
 
 ### 2.2 Reconhecimento Óptico de Caracteres (OCR)
 
