@@ -101,6 +101,8 @@ Os componentes identificados são organizados em uma estrutura de grafo direcion
 * **Vértices (Nós):** Representam os componentes arquiteturais e seus tipos.
 * **Arestas (Conexões):** Representam as relações e fluxos de comunicação inferidos entre os componentes.
 
+A reconstrução das conexões é baseada nas informações extraídas do diagrama e em critérios de relacionamento identificados durante o processamento, podendo evoluir futuramente com modelos específicos para detecção de conectores arquiteturais.
+
 ### 4. Modelagem de Ameaças (STRIDE)
 
 Com a topologia construída, o sistema aplica regras baseadas na metodologia **STRIDE**, gerando ameaças para componentes e fluxos:
