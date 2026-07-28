@@ -186,8 +186,7 @@ pip install ultralytics opencv-python pytesseract networkx pandas matplotlib
 
 📌 `Hackathon_7IADT.ipynb`
 
-4. Execute as células sequencialmente, forneça uma imagem de arquitetura como entrada e analise os artefatos produzidos.
-
+4. Execute as células sequencialmente.
 ---
 
 ## 📊 Resultados Gerados
