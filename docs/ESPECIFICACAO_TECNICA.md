@@ -2,7 +2,7 @@
 
 **Curso:** Pós-Graduação FIAP  
 **Evento:** Hackathon — Fase 5 (2026)  
-**Projeto:** MVP de Threat Modeling Automatizado com IA  
+**Projeto:** IA para Modelagem Automática de Ameaças em Arquiteturas de Software utilizando STRIDE  
 **Autor:** Adalberto Ferreira de Albuquerque Neto  
 
 ---
@@ -11,7 +11,7 @@
 
 A modelagem de ameaças (*Threat Modeling*) é uma disciplina fundamental de Segurança da Informação (*Application Security*) focada na identificação proativa de falhas de design e vulnerabilidades arquiteturais. Tradicionalmente, este processo ocorre através de revisões manuais conduzidas por especialistas, o que gera gargalos operacionais em pipelines de entrega contínua (CI/CD).
 
-Este documento especifica a arquitetura técnica e a fundamentação teórica do MVP desenvolvido para automatizar a extração de componentes, a reconstrução topológica e a geração de ameaças STRIDE a partir de diagramas de arquitetura de software.
+Este documento especifica a arquitetura técnica da solução proposta para o Hackathon da FIAP Software Security. O projeto visa desenvolver uma IA para interpretar diagramas de arquitetura, identificar componentes, gerar modelagem de ameaças STRIDE, criar/anotar datasets, treinar modelos supervisionados e consultar vulnerabilidades e contramedidas.
 
 ---
 
@@ -81,7 +81,7 @@ As recomendações geradas pelo motor de regras priorizam contramedidas padrões
 
 ## 5. Limitações Conhecidas e Trabalhos Futuros
 
-Como um MVP, a solução atual apresenta as seguintes delimitações:
+Como proposta de Hackathon, a solução apresenta as seguintes delimitações:
 
 1. **Dependência da Qualidade da Imagem:** Diagramas com baixa resolução ou fontes não padrão podem impactar a precisão do OCR.
 
