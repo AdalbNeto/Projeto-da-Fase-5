@@ -148,16 +148,20 @@ Dessa forma, a solução combina técnicas de Inteligência Artificial para comp
 ├── docs/
 │   ├── ESPECIFICACAO_TECNICA.md          # Especificação técnica e arquitetural
 │   └── FLUXO_DESENVOLVIMENTO_SOLUCAO.md  # Fluxo de desenvolvimento da solução
-├── 7iadt_hackathon_tm/                   # Diagramas de arquitetura utilizados como entrada do pipeline
-│   ├── *.png
-│   ├── *.jpg
-│   └── ...
 ├── .gitignore                            # Arquivos ignorados pelo Git
 ├── Hackathon_7IADT.ipynb                 # Notebook principal do projeto
 ├── LICENSE                               # Licença MIT
 ├── README.md                             # Documentação principal
 └── requirements.txt                      # Dependências do projeto
+
 ```
+
+## 📥 Repositorio de Trabalho do Projeto
+
+Devido ao tamanho elevado do repositório de trabalho do projeto para carregar no github,
+verifique no link do Google Drive:
+
+🔗 **https://drive.google.com/drive/folders/1Wckn7iKo8ZL2Us0gRMRC5QT4WEj1UxTs?usp=drive_link** 
 
 ---
 
