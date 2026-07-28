@@ -1,16 +1,16 @@
 ## 📖 Resumo Executivo
 
-A modelagem de ameaças (*Threat Modeling*) é uma prática essencial para o desenvolvimento de software seguro, permitindo identificar vulnerabilidades ainda na fase de arquitetura. Tradicionalmente, esse processo é realizado de forma manual, exigindo tempo, experiência e conhecimento especializado.
+A modelagem de ameaças (Threat Modeling) é uma prática essencial para o desenvolvimento de software seguro, permitindo identificar vulnerabilidades ainda na fase de arquitetura. Tradicionalmente, esse processo é realizado de forma manual, exigindo tempo, experiência e conhecimento especializado.
 
-Este MVP demonstra a viabilidade da automatização desse processo utilizando Inteligência Artificial. A solução recebe a imagem de um diagrama arquitetural e executa um pipeline capaz de identificar componentes, extrair informações textuais, reconstruir uma representação lógica da arquitetura e aplicar regras da metodologia STRIDE para gerar ameaças e recomendações de mitigação.
+Este projeto demonstra a viabilidade da automatização desse processo utilizando Inteligência Artificial. A solução recebe a imagem de um diagrama arquitetural e executa um pipeline capaz de identificar componentes, extrair informações textuais, reconstruir uma representação lógica da arquitetura e aplicar regras da metodologia STRIDE para gerar ameaças e recomendações de mitigação.
 
-Ao transformar diagramas em análises estruturadas de segurança, o projeto contribui para práticas de **Secure by Design** e estabelece uma base para futuras integrações com processos de **DevSecOps**.
+Ao transformar diagramas em análises estruturadas de segurança, o projeto contribui para práticas de *Secure by Design* e estabelece uma base para futuras integrações com processos de *DevSecOps*.
 
 ---
 
 ## 🎯 Objetivo
 
-Desenvolver um MVP capaz de automatizar a identificação de riscos de segurança em diagramas de arquitetura de software através da integração entre:
+Desenvolver um projeto capaz de automatizar a identificação de riscos de segurança em diagramas de arquitetura de software através da integração entre:
 
 - Inteligência Artificial e Visão Computacional
 - OCR (Reconhecimento Óptico de Caracteres)
@@ -23,11 +23,11 @@ Desenvolver um MVP capaz de automatizar a identificação de riscos de seguranç
 
 A análise manual de diagramas arquiteturais apresenta diversos desafios operacionais e de segurança:
 
-- **Elevado esforço operacional:** Análise linha a linha de cada fluxo do diagrama.
-- **Dependência de especialistas:** Gargalo no tempo de times dedicados de AppSec.
-- **Baixa escalabilidade:** Dificuldade de acompanhar o ritmo de entregas em pipelines ágeis.
-- **Subjetividade:** Risco de inconsistências e falhas humanas na identificação de vetores de ataque.
-- **Gargalo no Shift-Left:** Dificuldade para incorporar a segurança desde a concepção do projeto.
+- **Elevado esforço operacional:** análise linha a linha de cada fluxo do diagrama.
+- **Dependência de especialistas:** gargalo no tempo de times dedicados de AppSec.
+- **Baixa escalabilidade:** dificuldade de acompanhar o ritmo de entregas em pipelines ágeis.
+- **Subjetividade:** risco de inconsistências e falhas humanas na identificação de vetores de ataque.
+- **Gargalo no Shift-Left:** dificuldade para incorporar a segurança desde a concepção do projeto.
 
 ---
 
@@ -65,10 +65,10 @@ O projeto implementa um pipeline automatizado modular capaz de interpretar diagr
 └────────────┬────────────┘
              │
              ▼
-┌─────────────────────────┐
-│ Relatório de Ameaças    │
-│ (Ameaças + Recomendações)│
-└─────────────────────────┘
+┌──────────────────────────┐
+│ Relatório de Ameaças     │
+│ (Ameaças + Mitigações)   │
+└──────────────────────────┘
 ```
 
 ---
@@ -79,46 +79,46 @@ O projeto implementa um pipeline automatizado modular capaz de interpretar diagr
 
 A primeira etapa utiliza o modelo **YOLOv8** para localizar automaticamente componentes presentes em diagramas arquiteturais. Entre os elementos mapeados estão:
 
-* Usuários / Atores
-* Clientes Web
-* API Gateway
-* Serviços / Aplicações
-* Bancos de Dados
-* Filas de Mensageria
-* Armazenamento (Storage)
-* Sistemas Externos
+- Usuários / Atores
+- Clientes Web
+- API Gateway
+- Serviços / Aplicações
+- Bancos de Dados
+- Filas de Mensageria
+- Armazenamento (Storage)
+- Sistemas Externos
 
 Cada componente detectado possui sua **classe**, **bounding box** (localização espacial) e **grau de confiança**.
 
 ### 2. Reconhecimento de Texto (OCR)
 
-Após a detecção dos componentes, é realizado o pré-processamento das regiões de interesse (*ROIs*) utilizando **OpenCV** (conversão para escala de cinza, binarização e redução de ruído), seguido da extração de texto com **PyTesseract**. Essa etapa permite associar rótulos textuais às regiões detectadas, enriquecendo a interpretação semântica dos componentes arquiteturais identificados.
+Após a detecção dos componentes, é realizado o pré-processamento das regiões de interesse (ROIs) utilizando **OpenCV** (conversão para escala de cinza, binarização e redução de ruído), seguido da extração de texto com **PyTesseract**. Essa etapa permite associar rótulos textuais às regiões detectadas, enriquecendo a interpretação semântica dos componentes arquiteturais identificados.
 
 ### 3. Reconstrução da Topologia
 
 Os componentes identificados são organizados em uma estrutura de grafo direcionado utilizando **NetworkX**:
 
-* **Vértices (Nós):** Representam os componentes arquiteturais e seus tipos.
-* **Arestas (Conexões):** Representam as relações e fluxos de comunicação inferidos entre os componentes.
+- **Vértices (Nós):** representam os componentes arquiteturais e seus tipos.
+- **Arestas (Conexões):** representam os fluxos de comunicação inferidos entre os componentes.
 
 A reconstrução das conexões é baseada nas informações extraídas do diagrama e em critérios de relacionamento identificados durante o processamento, podendo evoluir futuramente com modelos específicos para detecção de conectores arquiteturais.
 
 ### 4. Modelagem de Ameaças (STRIDE)
 
-Com a topologia construída, o sistema aplica regras baseadas na metodologia **STRIDE**, gerando ameaças para componentes e fluxos:
+Com a topologia construída, o sistema aplica regras baseadas na metodologia **STRIDE**, gerando ameaças para componentes e fluxos.
 
 | Categoria | Definição | Foco da Análise |
-| --- | --- | --- |
-| **S**poofing | Falsificação de Identidade | Autenticação e validação de atores |
-| **T**ampering | Alteração Indevida de Dados | Integridade de dados em trânsito e repouso |
-| **R**epudiation | Repúdio de Ações | Rastreabilidade, logs e auditoria |
-| **I**nformation Disclosure | Vazamento de Informações | Criptografia e proteção contra exposição de dados |
-| **D**enial of Service | Negação de Serviço | Disponibilidade, limites de taxa e resiliência |
-| **E**levation of Privilege | Elevação de Privilégios | Autorização e controle de acesso (RBAC) |
+|-----------|-----------|-----------------|
+| **Spoofing** | Falsificação de Identidade | Autenticação e validação de atores |
+| **Tampering** | Alteração Indevida de Dados | Integridade dos dados |
+| **Repudiation** | Repúdio de Ações | Logs, auditoria e rastreabilidade |
+| **Information Disclosure** | Vazamento de Informações | Confidencialidade e criptografia |
+| **Denial of Service** | Negação de Serviço | Disponibilidade e resiliência |
+| **Elevation of Privilege** | Elevação de Privilégios | Autorização e controle de acesso |
 
-Para cada ameaça identificada, são geradas recomendações práticas de mitigação.
+Para cada ameaça identificada são geradas recomendações práticas de mitigação.
 
-A inteligência artificial é utilizada nas etapas de interpretação visual dos diagramas, identificação dos componentes arquiteturais, extração de informações textuais e reconstrução da estrutura lógica da arquitetura.
+A Inteligência Artificial é utilizada nas etapas de interpretação visual dos diagramas, identificação dos componentes arquiteturais, extração de informações textuais e reconstrução da estrutura lógica da arquitetura.
 
 A identificação das categorias STRIDE é realizada por meio de um motor baseado em regras de segurança, seguindo a metodologia estabelecida para associar possíveis ameaças aos componentes e fluxos arquiteturais identificados.
 
@@ -129,15 +129,15 @@ Dessa forma, a solução combina técnicas de Inteligência Artificial para comp
 ## 🛠️ Tecnologias Utilizadas
 
 | Tecnologia | Finalidade |
-| --- | --- |
-| **Python 3** | Linguagem principal do projeto |
-| **Jupyter / Colab** | Ambiente de desenvolvimento e execução do experimento |
-| **Ultralytics YOLOv8** | Detecção de objetos e componentes visuais |
-| **OpenCV** | Processamento digital de imagens e preparação para OCR |
-| **PyTesseract** | Reconhecimento Óptico de Caracteres (OCR) |
-| **NetworkX** | Modelagem da topologia da arquitetura em grafos |
-| **Pandas** | Estruturação e manipulação de dados |
-| **Matplotlib** | Visualização dos grafos e resultados |
+|------------|------------|
+| **Python 3** | Linguagem principal |
+| **Jupyter Notebook / Google Colab** | Ambiente de desenvolvimento |
+| **Ultralytics YOLOv8** | Detecção de componentes |
+| **OpenCV** | Processamento de imagens |
+| **PyTesseract** | OCR |
+| **NetworkX** | Modelagem em grafos |
+| **Pandas** | Manipulação de dados |
+| **Matplotlib** | Visualização gráfica |
 
 ---
 
@@ -145,15 +145,18 @@ Dessa forma, a solução combina técnicas de Inteligência Artificial para comp
 
 ```text
 .
-├── docs/                                          # Documentação auxiliar do projeto
-│   ├── ESPECIFICACAO_TECNICA.md                   # Especificação técnica e arquitetural
-│   └── FLUXO_DESENVOLVIMENTO_SOLUCAO.md           # Fluxo de desenvolvimento da solução
-│ 
-├── .gitignore                                     # Proteção contra arquivos temporários
-├── LICENSE                                        # Licença MIT
-├── MVP_Threat_Modeling_AI_v12-executada-v1.ipynb  # Notebook principal do projeto
-├── README.md                                      # Documentação principal do repositório
-└── requirements.txt                               # Dependências do ambiente Python
+├── docs/
+│   ├── ESPECIFICACAO_TECNICA.md          # Especificação técnica e arquitetural
+│   └── FLUXO_DESENVOLVIMENTO_SOLUCAO.md  # Fluxo de desenvolvimento da solução
+├── 7iadt_hackathon_tm/                   # Diagramas de arquitetura utilizados como entrada do pipeline
+│   ├── *.png
+│   ├── *.jpg
+│   └── ...
+├── .gitignore                            # Arquivos ignorados pelo Git
+├── Hackathon_7IADT.ipynb                 # Notebook principal do projeto
+├── LICENSE                               # Licença MIT
+├── README.md                             # Documentação principal
+└── requirements.txt                      # Dependências do projeto
 ```
 
 ---
@@ -162,66 +165,64 @@ Dessa forma, a solução combina técnicas de Inteligência Artificial para comp
 
 ### Execução via Google Colab ou Jupyter Notebook
 
-1. Clone o repositório oficial do projeto:
+1. Clone o repositório:
 
 ```bash
 git clone https://github.com/AdalbNeto/Projeto-da-Fase-5.git
-
 cd Projeto-da-Fase-5
 ```
 
-2. Instale as dependências requeridas no ambiente Python:
+2. Instale as dependências:
 
 ```bash
 pip install ultralytics opencv-python pytesseract networkx pandas matplotlib
 ```
 
-3. Abra e execute o notebook principal do projeto:
-   
-   📌 [MVP_Threat_Modeling_AI_v12-executada-v1.ipynb](./MVP_Threat_Modeling_AI_v12-executada-v1.ipynb)
-```
+3. Abra o notebook principal:
 
-4. Execute as células sequencialmente, forneça uma imagem de arquitetura como entrada e analise os artefatos de saída produzidos.
+📌 `Hackathon_7IADT.ipynb`
+
+4. Execute as células sequencialmente, forneça uma imagem de arquitetura como entrada e analise os artefatos produzidos.
 
 ---
 
 ## 📊 Resultados Gerados
 
-Durante e ao final da execução, o pipeline gera automaticamente na pasta `outputs/`:
+Durante a execução, o pipeline gera automaticamente:
 
-* **Bounding Boxes e Rótulos:** Imagens anotadas com a classificação dos componentes.
-* **Texto Extraído:** Mapeamento de nomes de serviços via OCR.
-* **Grafo da Arquitetura:** Visualização estruturada de nós e conexões inferidas.
-* **Relatório STRIDE:** Matriz contendo os riscos identificados por componente/fluxo e suas respectivas recomendações de mitigação.
+- **Bounding Boxes e Rótulos:** componentes detectados na imagem.
+- **Texto Extraído:** identificação via OCR.
+- **Grafo da Arquitetura:** representação lógica dos componentes e conexões.
+- **Relatório STRIDE:** ameaças identificadas e respectivas recomendações de mitigação.
 
 ---
 
 ## ⭐ Diferenciais da Solução
 
-* **Aplicação Prática de IA em AppSec:** Automação de tarefas complexas de segurança.
-* **Pipeline Multimodal:** Combinação de Visão Computacional, OCR e Teoria dos Grafos.
-* **Shift-Left Security:** Análise automatizada ainda na fase de design arquitetural.
-* **Arquitetura Modular:** Facilidade para expandir regras de segurança e novos modelos.
-* **Redução de Esforço Manual:** Agilidade para times de desenvolvimento e segurança.
+- Aplicação prática de IA em AppSec.
+- Pipeline multimodal (Visão Computacional + OCR + Grafos).
+- Automação de práticas de Shift-Left Security.
+- Arquitetura modular e extensível.
+- Redução do esforço manual na modelagem de ameaças.
 
 ---
 
 ## 🚀 Próximos Passos
 
-* [ ] Desenvolvimento de Interface Web interativa utilizando **Streamlit**.
-* [ ] Suporte e integração a múltiplos motores de OCR.
-* [ ] Evolução da Base de Conhecimento e regras do motor STRIDE.
-* [ ] Módulo para exportação de relatórios executivos em formatos **PDF** e **HTML**.
-* [ ] Construção de **API REST** para integração com esteiras de CI/CD (DevSecOps).
-* [ ] Suporte à interpretação de diagramas sintáticos (**PlantUML** e **Mermaid**).
+- [ ] Desenvolvimento de interface Web com Streamlit.
+- [ ] Integração com múltiplos motores de OCR.
+- [ ] Evolução da base de conhecimento STRIDE.
+- [ ] Exportação de relatórios em PDF e HTML.
+- [ ] API REST para integração com pipelines DevSecOps.
+- [ ] Suporte a PlantUML e Mermaid.
 
 ---
 
 ## 🏆 Conclusão
 
-Este MVP demonstra a viabilidade técnica da automatização da modelagem de ameaças em diagramas arquiteturais utilizando Inteligência Artificial.
+Este projeto demonstra a viabilidade técnica da automatização da modelagem de ameaças em diagramas arquiteturais utilizando Inteligência Artificial.
 
-A combinação entre Visão Computacional, OCR, Grafos e STRIDE permite transformar diagramas de arquitetura em análises estruturadas de segurança, reduzindo o esforço manual e estabelecendo uma base sólida para futuras evoluções voltadas à automação de processos **DevSecOps** e **Secure by Design**.
+A combinação entre Visão Computacional, OCR, Grafos e STRIDE permite transformar diagramas de arquitetura em análises estruturadas de segurança, reduzindo o esforço manual e estabelecendo uma base sólida para futuras evoluções voltadas à automação de processos DevSecOps e à adoção dos princípios de *Secure by Design*.
 
 ---
 
@@ -229,4 +230,4 @@ A combinação entre Visão Computacional, OCR, Grafos e STRIDE permite transfor
 
 **Adalberto Ferreira de Albuquerque Neto**
 
-*Hackathon FIAP — Fase 5 (2026)*
+Hackathon FIAP — Fase 5 (2026)
